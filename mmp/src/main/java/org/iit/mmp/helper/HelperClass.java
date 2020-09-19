@@ -5,12 +5,11 @@ import org.openqa.selenium.WebDriver;
 
 public class HelperClass {
 	
-	WebDriver driver;
+	private WebDriver driver;
+	private By usernmaeID = By.id("username");
 	public HelperClass(WebDriver driver)
 	{
 		this.driver= driver;    
-	
-	
 	}
 	public void login(String uname,String pword,String url)
 	{
