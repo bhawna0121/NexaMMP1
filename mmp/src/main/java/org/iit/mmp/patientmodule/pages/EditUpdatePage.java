@@ -28,6 +28,7 @@ public class EditUpdatePage {
 	public EditUpdatePage(WebDriver driver)
 	{
 		this.driver = driver;
+		System.out.println("In Constructor");
 	}
 	public void editAgeField()
 	{
