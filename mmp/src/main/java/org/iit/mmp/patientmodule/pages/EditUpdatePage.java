@@ -17,6 +17,8 @@ public class EditUpdatePage {
 	By saveButtonID = By.id("Sbtn");
 	By weightID = By.id("weight");
 	
+	
+	
 	Random rand = new Random();
 	//Store Expected Values
 	HashMap<String,String> hMap1  = new HashMap<String,String>();

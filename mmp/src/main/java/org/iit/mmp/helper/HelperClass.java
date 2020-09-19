@@ -8,7 +8,9 @@ public class HelperClass {
 	WebDriver driver;
 	public HelperClass(WebDriver driver)
 	{
-		this.driver= driver;
+		this.driver= driver;    
+	
+	
 	}
 	public void login(String uname,String pword,String url)
 	{
