@@ -13,6 +13,7 @@ public class AppLibrary {
 	{
 		WebDriverWait wait = new WebDriverWait(driver,timeinSecs);
 		WebElement continueWE = wait.until(ExpectedConditions.elementToBeClickable(e));
+		System.out.println("Webelement " +continueWE);
 		return continueWE;
 		
 	}
