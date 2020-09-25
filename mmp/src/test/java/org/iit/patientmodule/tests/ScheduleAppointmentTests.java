@@ -1,5 +1,6 @@
 package org.iit.patientmodule.tests;
 
+import java.io.IOException;
 import java.util.HashMap;
 
 import org.iit.mmp.helper.HelperClass;
@@ -8,29 +9,50 @@ import org.iit.util.BaseClass;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
-
-
 public class ScheduleAppointmentTests extends BaseClass {
-	
-	@Test
-	public void validateScheduleAppointment() throws InterruptedException
-	{
-		 
-		 SoftAssert sa = new SoftAssert();
-		 HelperClass helperObj = new HelperClass(driver);
-		 helperObj.login("ria1", "Ria12345", "http://96.84.175.78/MMP-Release2-Integrated-Build.6.8.000/portal/login.php");
-		 ScheduleAppointmentPage sPage = new ScheduleAppointmentPage(driver);
-		 helperObj.navigateToAModule("Schedule Appointment");
-		 HashMap<String,String> hMap = sPage.bookAppointment("Beth");
-		 helperObj.navigateToAModule("HOME");
-		 boolean result=sPage.validateAppointmentDetailsinHomePage(hMap);
-		 sa.assertTrue(result);
-		 helperObj.navigateToAModule("Schedule Appointment ");
-		 result = sPage.validateAppointmentDetailsinSPage(hMap);
-		 sa.assertTrue(result);
-		 sa.assertAll();
-	}
-	 
-	
+	private HelperClass helperObject;
+	private String doctorName = "Sophia Rich";
+	private String urlPatient;
+	private String patientName;
+	private String patientPassword;
 
+	@Test
+	public void validateScheduleAppointment() throws InterruptedException, IOException {
+
+		SoftAssert sa = new SoftAssert();
+System.out.println("1");
+		// TC1 - Open the Chrome Browser
+		instantiatingDriver();
+		System.out.println("2");
+		// TC2 - Enter URL and login details
+		helperObject = new HelperClass(driver);
+		System.out.println("5");
+		urlPatient = prop.getProperty("urlPatient");
+		helperObject.launchBrowser(urlPatient);
+		patientName = prop.getProperty("patientName");
+		patientPassword = prop.getProperty("patientPassword");
+		helperObject.login(patientName, patientPassword);
+
+		// TC3 - Navigate to Schedule Appointment
+		helperObject.navigateToAModule("Schedule Appointment");
+
+		// TC4 - Navigate to HomePage
+		ScheduleAppointmentPage schApptPage = new ScheduleAppointmentPage(driver);
+		HashMap<String, String> makeApptMap = schApptPage.schAppointment(doctorName);
+		helperObject.navigateToAModule("HOME");
+
+		// TC5 - Validate the Schedule Appointment/Visit details on the Homepage
+		boolean match = schApptPage.compareValuesOnHomePage(makeApptMap);
+		sa.assertTrue(match);
+
+		// TC6 - Validate the Schedule Appointment details on the Schedule Appointment
+		// page
+		helperObject.navigateToAModule("Schedule Appointment");
+		match = schApptPage.compareValuesOnScheduleAppt(makeApptMap);
+		sa.assertTrue(match);
+
+		sa.assertAll();
+
+		tearDriver();
+	}
 }
