@@ -3,7 +3,8 @@
 <suite name="Suite">
   <test name="Test">
     <classes>
-      <class name="org.iit.patientmodule.tests.LoginTests"/>
+      <class name="org.iit.mmp.adminmodule.tests.MessageSendingDocTests"/>
+      <class name="org.iit.patientmodule.tests.EditUpdateTests"/>
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->
