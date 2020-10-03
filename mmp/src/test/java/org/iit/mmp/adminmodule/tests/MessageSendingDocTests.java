@@ -56,6 +56,7 @@ public class MessageSendingDocTests extends BaseClass{
 		String patientFirstName = driver.findElement(By.id("fname")).getAttribute("value");
 		// -- send message as a Patient 
 		messagePage= new MessageSendingPage(driver);
+		Logger.log("DBG", linkSendingMessage);
 		patientDriver.navigateToAModule(linkSendingMessage);
 		messageData = messagePage.sendMessage(patientFirstName, subject.trim(), message.trim());
 		Logger.log("I", "Done! Message sent as Patient");
@@ -76,6 +77,7 @@ public class MessageSendingDocTests extends BaseClass{
 		
 		Assert.assertEquals(messagePage.validateMessage(messageData), true);
 		Logger.log("I", "Message Validated from ADMIN Module");			
+		
 		// -- Logout from Admin Module
 		adminDriver.navigateToAModule(linkLogout);
 		Logger.log("I", "Logged out as ADMIN");		

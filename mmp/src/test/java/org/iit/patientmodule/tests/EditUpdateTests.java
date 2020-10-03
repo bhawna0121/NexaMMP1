@@ -8,13 +8,14 @@ import org.iit.util.Logger;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
+
 public class EditUpdateTests extends BaseClass{
 	
 	/**
 	 * Static declarations
 	 **/
 	private static String appURL;
-	private static String adminURL; 
+	private static String adminURL; // 
 	private static String username;
 	private static String password;
 	String linkEditProfile = "Profile";

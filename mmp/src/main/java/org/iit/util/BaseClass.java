@@ -1,24 +1,13 @@
 package org.iit.util;
 
-import java.lang.module.Configuration;
 import java.util.Properties;
-import java.util.concurrent.TimeUnit;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.testng.annotations.BeforeTest;
-import io.github.bonigarcia.wdm.WebDriverManager;
-
 import org.iit.mmp.config.ProjectConfig;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.testng.IHookCallBack;
-import org.testng.ITestResult;
+import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class BaseClass {
-	
 	protected  WebDriver driver;
 	protected  Properties pro;
 	 	

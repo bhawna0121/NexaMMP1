@@ -18,7 +18,7 @@ public class ScheduleAppointmentTests extends BaseClass {
 		 
 		 SoftAssert sa = new SoftAssert();
 		 HelperClass helperObj = new HelperClass(driver);
-		 helperObj.login("ria1", "Ria12345", "http://96.84.175.78/MMP-Release2-Integrated-Build.6.8.000/portal/login.php");
+		 helperObj.login("ria1", "Ria12345");
 		 ScheduleAppointmentPage sPage = new ScheduleAppointmentPage(driver);
 		 helperObj.navigateToAModule("Schedule Appointment");
 		 HashMap<String,String> hMap = sPage.bookAppointment("Beth");
