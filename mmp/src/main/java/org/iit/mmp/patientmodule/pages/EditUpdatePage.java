@@ -1,6 +1,5 @@
 package org.iit.mmp.patientmodule.pages;
 
-
 import java.io.IOException;
 import java.util.Calendar;
 import java.util.HashMap;
@@ -14,6 +13,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
 
 public class EditUpdatePage {
 	
